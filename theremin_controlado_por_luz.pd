@@ -71,7 +71,7 @@
 #X connect 15 0 16 0;
 #X connect 16 0 0 0;
 #X coords 0 -1 1 1 85 40 1 100 100;
-#X restore 511 147 pd gemwin;
+#X restore 557 194 pd gemwin;
 #X text 9 -78 Theremin controlado por Luz;
 #X text 84 60 <- objeto principal do Gem responsavel por passar o comando
 de desenho para os objetos que deverao ser desenhados.;
@@ -114,6 +114,12 @@ a 1a. Semana de Educacao e Arte Digital de Tocantins na oficina Sistemas
 Interativos de Tempo Real junto com o maestro Heitor Oliveira.;
 #X text 32 9 Qualquer duvida sobre esse fluxograma envie um email para
 jandila@gmail.com (Jarbas Jacome);
+#X obj 557 110 loadbang;
+#X msg 557 137 create;
+#X obj 611 160 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 611 136 1;
+#X msg 479 143 \; pd dsp 1;
 #X connect 0 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 15 0;
@@ -132,3 +138,9 @@ jandila@gmail.com (Jarbas Jacome);
 #X connect 26 0 24 1;
 #X connect 27 0 26 1;
 #X connect 32 0 25 0;
+#X connect 35 0 36 0;
+#X connect 35 0 38 0;
+#X connect 35 0 39 0;
+#X connect 36 0 6 0;
+#X connect 37 0 6 0;
+#X connect 38 0 37 0;
