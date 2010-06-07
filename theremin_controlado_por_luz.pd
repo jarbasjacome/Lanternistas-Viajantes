@@ -1,0 +1,134 @@
+#N canvas 566 34 659 651 12;
+#X obj 25 66 gemhead;
+#X obj 25 537 rectangle 4 3;
+#X obj 25 502 pix_texture;
+#X obj 25 157 pix_video;
+#X msg 68 126 device 0;
+#N canvas 162 133 570 420 serin 0;
+#X obj 205 60 cnv 20 20 20 empty \$0-open-canvas 0 4 10 0 16 -233017
+-1 0;
+#X obj 60 61 hradio 18 1 1 8 empty empty empty 0 -6 0 8 -225271 -1
+-1 0;
+#X obj 60 13 inlet;
+#X msg 200 202 label \$1;
+#X obj 200 180 makefilename %d;
+#X obj 59 108 int;
+#X obj 59 337 outlet;
+#X msg 201 306 set \$1 \$2;
+#X obj 59 266 trigger bang anything;
+#X obj 201 286 list;
+#X obj 200 225 send \$0-open-canvas;
+#X msg 60 210 device \$1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 0 11 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 8 1 9 0;
+#X connect 9 0 7 0;
+#X connect 11 0 8 0;
+#X coords 0 -1 1 1 165 20 1 60 60;
+#X restore 68 102 pd serin;
+#N canvas 340 107 682 322 gemwin 0;
+#X obj 102 122 tgl 15 0 \$0-gemstart \$0-gemstart empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 102 161 r \$0-gemstart;
+#X obj 102 182 select 1 0;
+#X msg 102 214 create \, 1;
+#X msg 177 215 destroy;
+#X obj 102 239 t a;
+#X obj 318 54 inlet;
+#X obj 318 255 gemwin;
+#X obj 318 100 t a a;
+#X obj 318 287 outlet;
+#X obj 350 128 route create destroy;
+#X obj 350 150 t b;
+#X msg 350 172 1;
+#X obj 390 150 t b;
+#X msg 390 172 0;
+#X obj 350 195 t f;
+#X msg 350 219 set \$1;
+#X text 118 122 rendering;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 1 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
+#X coords 0 -1 1 1 85 40 1 100 100;
+#X restore 511 147 pd gemwin;
+#X text 9 -78 Theremin controlado por Luz;
+#X text 84 60 <- objeto principal do Gem responsavel por passar o comando
+de desenho para os objetos que deverao ser desenhados.;
+#X text 236 101 <- escolhe qual a webcam USB sera usada;
+#X text 129 536 <- desenha o retangulo com o video capturado como textura.
+;
+#X text 118 500 <- transforma os quadros da webcam (bitmaps) em uma
+textura.;
+#X text 103 156 <- captura os quadros da webcam.;
+#X obj 25 297 pix_blob;
+#X text 91 296 <- localiza onde esta o centro geometrico da regiao
+mais clara da imagem;
+#X obj 25 259 pix_threshold;
+#X floatatom 69 193 5 0 0 0 - - -;
+#X obj 69 225 / 100;
+#X text 116 191 <- esse valor serve para ajustar o valor minimo de
+luminosidade a ser considerado pelo objeto pix_blob;
+#X text 123 255 <- transforma em preto os pixels cujo valor de luminosidade
+eh menor que o determinado pelo numero acima;
+#X floatatom 94 355 5 0 0 0 - - -;
+#X floatatom 42 332 5 0 0 0 - - -;
+#X text 133 354 <-- posicao Y do centro geometrico da regiao mais clara
+;
+#X text 88 330 <-- posicao X do centro geometrico da regiao mais clara
+;
+#X obj 62 473 dac~;
+#X obj 62 416 osc~;
+#X obj 63 443 *~ 0.5;
+#X obj 95 383 * 0.5;
+#X text 142 380 <-- normalizam os valores para que equivalham a valores
+de frequencia e amplitude audiveis.;
+#X text 117 442 <-- aumenta ou diminui a amplitude de acordo com Y
+;
+#X text 107 415 <-- oscilador recebe o valor da frequencia de acordo
+com X;
+#X text 99 473 <-- aumenta ou diminui a amplitude de acordo com Y;
+#X obj 42 384 * 500;
+#X text 32 -58 Este fluxograma foi desenvolvido em Palmas \, durante
+a 1a. Semana de Educacao e Arte Digital de Tocantins na oficina Sistemas
+Interativos de Tempo Real junto com o maestro Heitor Oliveira.;
+#X text 32 9 Qualquer duvida sobre esse fluxograma envie um email para
+jandila@gmail.com (Jarbas Jacome);
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 13 0 2 0;
+#X connect 13 1 21 0;
+#X connect 13 2 20 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 15 1;
+#X connect 20 0 27 0;
+#X connect 21 0 32 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 26 0 24 1;
+#X connect 27 0 26 1;
+#X connect 32 0 25 0;
