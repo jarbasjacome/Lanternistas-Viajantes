@@ -1,7 +1,7 @@
 #N canvas 0 27 1265 684 12;
 #X floatatom 717 320 5 0 0 0 - - -;
-#X obj 679 -59 vsl 15 300 0 1400 0 0 empty empty empty 0 -8 0 8 -262144
--1 -1 1068 1;
+#X obj 676 -59 vsl 15 300 0 1400 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
 #X msg 269 382 \; ratio1 0 1 256 9 32 81 4 729 3 128 27 16 243 2;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array ratio1 13 float 3;
@@ -13,7 +13,7 @@
 #A 0 1 243 8 27 64 3 512 2 81 16 9 128 1;
 #X coords 0 800 12 0 200 140 1;
 #X restore 28 332 graph;
-#X obj 709 -63 vsl 15 128 0 12 0 0 empty empty empty 0 -8 0 8 -262144
+#X obj 717 -47 vsl 15 128 0 12 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 0 1;
 #X msg 269 421 \; ratio2 0 1 243 8 27 64 3 512 2 81 16 9 128 1;
 #X obj 717 191 tabread ratio1;
@@ -36,8 +36,8 @@
 #X coords 0 12 7 0 200 140 1;
 #X restore 270 4 graph;
 #X msg 270 -55 \; maior 0 0 2 4 5 7 9 11 12;
-#X obj 878 -62 vsl 15 128 0 7 0 0 empty empty empty 0 -8 0 8 -262144
--1 -1 0 1;
+#X obj 879 -64 vsl 15 128 0 7 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 2400 1;
 #X obj 878 76 tabread maior;
 #X text 768 129 caso em que deve ser usado o trigger para garantir
 que o dividendo (dir) ja esteja carregado antes de efetuar a divisao.
@@ -101,8 +101,8 @@ como valor de amplitude do theremin;
 #X floatatom 780 299 5 0 0 0 - - -;
 #X obj 780 321 / 100;
 #X obj 716 389 *~ 0.1;
-#X obj 679 -117 loadbang;
-#X msg 679 -89 50;
+#X obj 676 -117 loadbang;
+#X msg 676 -89 50;
 #X obj 763 270 * 0.5;
 #X text 254 161 ratio1 e ratio2 listam respectivamente os divisores
 e os dividendos das proporcoes de cada uma das 12 notas no temperamento
@@ -114,10 +114,10 @@ na oitava. Jah a quinta \, de acordo com o temperamento pitagorico
 \, resultando na razao igual a 3/2 \, por tanto a frequencia da primeira
 eh multiplicada por 3/2 resultando na frequencia da quinta (neste caso
 a chamamos de quinta justa). para entender melhor leia: http://es.wikipedia.org/wiki/Afinaci%C3%B3n_pitag%C3%B3rica
-;
+http://www.dolmetsch.com/musictheory27.htm#pythag;
+#X floatatom 676 252 5 0 0 0 - - -;
 #X connect 0 0 23 0;
-#X connect 1 0 0 0;
-#X connect 1 0 10 1;
+#X connect 1 0 42 0;
 #X connect 5 0 11 0;
 #X connect 7 0 9 0;
 #X connect 8 0 9 1;
@@ -142,3 +142,5 @@ a chamamos de quinta justa). para entender melhor leia: http://es.wikipedia.org/
 #X connect 38 0 39 0;
 #X connect 39 0 1 0;
 #X connect 40 0 37 1;
+#X connect 42 0 10 1;
+#X connect 42 0 0 0;
