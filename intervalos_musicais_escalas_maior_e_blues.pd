@@ -1,48 +1,48 @@
 #N canvas 0 27 1265 684 12;
-#X floatatom 579 317 5 0 0 0 - - -;
-#X obj 521 -62 vsl 15 300 0 1400 0 0 empty empty empty 0 -8 0 8 -262144
+#X floatatom 717 320 5 0 0 0 - - -;
+#X obj 679 -59 vsl 15 300 0 1400 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 1068 1;
-#X msg 40 187 \; ratio1 0 1 256 9 32 81 4 729 3 128 27 16 243 2;
+#X msg 269 382 \; ratio1 0 1 256 9 32 81 4 729 3 128 27 16 243 2;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array ratio1 13 float 3;
 #A 0 1 256 9 32 81 4 729 3 128 27 16 243 2;
 #X coords 0 800 12 0 200 140 1;
-#X restore 40 336 graph;
+#X restore 25 171 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array ratio2 13 float 3;
 #A 0 1 243 8 27 64 3 512 2 81 16 9 128 1;
 #X coords 0 800 12 0 200 140 1;
-#X restore 265 337 graph;
-#X obj 571 -66 vsl 15 128 0 12 0 0 empty empty empty 0 -8 0 8 -262144
+#X restore 28 332 graph;
+#X obj 709 -63 vsl 15 128 0 12 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 0 1;
-#X msg 41 254 \; ratio2 0 1 243 8 27 64 3 512 2 81 16 9 128 1;
-#X obj 579 188 tabread ratio1;
-#X obj 611 217 tabread ratio2;
-#X obj 579 245 /;
-#X obj 579 280 *;
-#X floatatom 579 105 5 0 0 0 - - -;
+#X msg 269 421 \; ratio2 0 1 243 8 27 64 3 512 2 81 16 9 128 1;
+#X obj 717 191 tabread ratio1;
+#X obj 749 220 tabread ratio2;
+#X obj 717 248 /;
+#X obj 717 283 *;
+#X floatatom 717 108 5 0 0 0 - - -;
 #N canvas 0 0 454 304 (subpatch) 0;
 #X array blues 7 float 3;
 #A 0 0 3 5 6 7 10 12;
 #X coords 0 12 6 0 200 140 1;
-#X restore 21 29 graph;
-#X obj 618 64 tabread blues;
-#X obj 618 -97 vsl 15 128 0 6 0 0 empty empty empty 0 -8 0 8 -262144
+#X restore 24 3 graph;
+#X obj 756 67 tabread blues;
+#X obj 756 -94 vsl 15 128 0 6 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 0 1;
-#X msg 21 -35 \; blues 0 0 3 5 6 7 10 12;
+#X msg 25 -53 \; blues 0 0 3 5 6 7 10 12;
 #N canvas 0 0 454 304 (subpatch) 0;
 #X array maior 8 float 3;
 #A 0 0 2 4 5 7 9 11 12;
 #X coords 0 12 7 0 200 140 1;
-#X restore 267 30 graph;
-#X msg 267 -29 \; maior 0 0 2 4 5 7 9 11 12;
-#X obj 740 -65 vsl 15 128 0 7 0 0 empty empty empty 0 -8 0 8 -262144
+#X restore 270 4 graph;
+#X msg 270 -55 \; maior 0 0 2 4 5 7 9 11 12;
+#X obj 878 -62 vsl 15 128 0 7 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 0 1;
-#X obj 740 73 tabread maior;
-#X text 630 126 caso em que deve ser usado o trigger para garantir
+#X obj 878 76 tabread maior;
+#X text 768 129 caso em que deve ser usado o trigger para garantir
 que o dividendo (dir) ja esteja carregado antes de efetuar a divisao.
 ;
-#X obj 579 137 t f f;
+#X obj 717 140 t f f;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array table10 259 float 1;
 #A 0 0.198738 0.2 0.198738 0.194981 0.188824 0.180418 0.169969 0.157737
@@ -80,29 +80,41 @@ que o dividendo (dir) ja esteja carregado antes de efetuar a divisao.
 0.0511585 0.0659392 0.0815247 0.0975239 0.113537 0.129166 0.144021
 0.157735 0.169967 0.180416 0.188823 0.19498 0.198737 0.2 0.198738;
 #X coords 0 1.02 258 -1.02 258 130 1;
-#X restore 743 394 graph;
-#X obj 579 353 tabosc4~ table10;
-#X msg 751 315 \; table10 cosinesum 256 0.2 -0.2 0.2 -0.2 0.2 -0.2
+#X restore 859 376 graph;
+#X obj 717 356 tabosc4~ table10;
+#X msg 835 297 \; table10 cosinesum 256 0.2 -0.2 0.2 -0.2 0.2 -0.2
 0.2;
-#X floatatom 684 -29 5 0 0 0 - - -;
-#X obj 684 -99 * 7;
-#X obj 578 418 dac~;
+#X floatatom 778 27 5 0 0 0 - - -;
+#X obj 778 -96 * 7;
+#X obj 716 421 dac~;
 #X text 27 -129 Intervalos musicais da escala maior e escala blues
 usando temperamento pitagorico;
-#X obj 684 -130 r posX;
-#X obj 640 262 r posY;
+#X obj 778 -127 r posX;
+#X obj 763 246 r posY;
 #X text 42 -93 Qualquer duvida sobre esse fluxograma envie um email
 para jandila@gmail.com (Jarbas Jacome);
-#X text 732 -133 <-- recebe o valor da posicao X da luz;
-#X text 717 -102 <-- normaliza para percorrer as 8 notas da escala
-blues;
-#X text 691 261 <-- recebe o valor da posicao Y da luz para ser usado
+#X text 826 -130 <-- recebe o valor da posicao X da luz;
+#X text 811 -99 <-- normaliza para percorrer as 8 notas da escala blues
+;
+#X text 812 243 <-- recebe o valor da posicao Y da luz para ser usado
 como valor de amplitude do theremin;
-#X floatatom 653 300 5 0 0 0 - - -;
-#X obj 653 322 / 100;
-#X obj 578 386 *~ 0.1;
-#X obj 521 -120 loadbang;
-#X msg 521 -92 50;
+#X floatatom 780 299 5 0 0 0 - - -;
+#X obj 780 321 / 100;
+#X obj 716 389 *~ 0.1;
+#X obj 679 -117 loadbang;
+#X msg 679 -89 50;
+#X obj 763 270 * 0.5;
+#X text 254 161 ratio1 e ratio2 listam respectivamente os divisores
+e os dividendos das proporcoes de cada uma das 12 notas no temperamento
+pitagorico. Por exemplo \, a oitava (ultimo item de cada lista) eh
+o dobro da frequencia da primeira \, entao ratio1=2 e ratio2=1 \, 2/1=2
+\, entao a frequencia da primeira eh multiplicada por 2 \, resultando
+na oitava. Jah a quinta \, de acordo com o temperamento pitagorico
+\, eh 3/2 vezes a frequencia da primeira \, entao ratio1=3 e ratio2=2
+\, resultando na razao igual a 3/2 \, por tanto a frequencia da primeira
+eh multiplicada por 3/2 resultando na frequencia da quinta (neste caso
+a chamamos de quinta justa). para entender melhor leia: http://es.wikipedia.org/wiki/Afinaci%C3%B3n_pitag%C3%B3rica
+;
 #X connect 0 0 23 0;
 #X connect 1 0 0 0;
 #X connect 1 0 10 1;
@@ -122,10 +134,11 @@ como valor de amplitude do theremin;
 #X connect 25 0 13 0;
 #X connect 26 0 25 0;
 #X connect 29 0 26 0;
-#X connect 30 0 37 1;
+#X connect 30 0 40 0;
 #X connect 35 0 36 0;
 #X connect 36 0 37 1;
 #X connect 37 0 27 0;
 #X connect 37 0 27 1;
 #X connect 38 0 39 0;
 #X connect 39 0 1 0;
+#X connect 40 0 37 1;
